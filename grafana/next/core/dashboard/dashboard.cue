@@ -598,9 +598,10 @@ lineage: {
 				libraryPanel?: #LibraryPanelRef
 
 				// It depends on the panel plugin. They are specified by the Options field in panel plugin schemas.
+				// TODO: this should be typed in Go as some "panel options" interface
 				options: {
 					...
-				} @grafanamaturity(NeedsExpertReview)
+				} @grafanamaturity(NeedsExpertReview) @kindsys(composabilityInterface="PanelCfgOptionsInterface")
 
 				// Field options allow you to change how the data is displayed in your visualizations.
 				fieldConfig: #FieldConfigSource
@@ -711,7 +712,7 @@ lineage: {
 				// in panel plugin schemas.
 				custom?: {
 					...
-				} @grafanamaturity(NeedsExpertReview)
+				} @grafanamaturity(NeedsExpertReview) @kindsys(composabilityInterface="PanelCfgFieldConfigInterface")
 			} @cuetsy(kind="interface") @grafana(TSVeneer="type") @grafanamaturity(NeedsExpertReview)
 
 			// Row panel
